@@ -17,15 +17,42 @@ angular.module('app')
     var vm = this;
 // Upon initialziation, do these things
     vm.$onInit = function() {
-      console.log(classifiedsService);
-      classifiedsService.getClassifieds()
-          .then(function(classifieds) {
-              vm.classifieds = classifieds;
+      vm.classifiedData = {};
+      vm.getClassifieds = getClassifieds;
+      vm.addClassified = addClassified;
 
-          })
-          .catch((err) => {
-              console.log(err);
-          });
-   };
-  }
-  })();
+      getClassifieds();
+
+
+      // Get all classified ads
+      function getClassifieds() {
+        classifiedsService.getClassifieds()
+            .then(function(classifieds) {
+                vm.classifieds = classifieds;
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+          }
+
+      // Add a new classified
+      function addClassified(title, description, price, item_image) {
+        console.log('in here');
+          if (title && description && price && item_image) {
+              vm.classifiedData.created_at = new Date();
+              console.log(vm.classifiedData, "posting here");
+              classifiedsService.postClassified(vm.classifiedData)
+                  .then(function(classified) {
+                      console.log(classified);
+                      vm.getClassifieds();
+                  })
+                  .catch((err) => {
+                      console.log(err);
+                  });
+                  vm.classifiedData = {};
+                }
+              }
+
+};
+}
+})();

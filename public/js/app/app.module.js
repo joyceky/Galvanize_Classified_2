@@ -20,7 +20,7 @@ angular
           return response.data;
       });
     };
-    this.postClassifieds = function(newClassified) {
+    this.postClassified = function(newClassified) {
         return $http.post('/classifieds', newClassified)
           .then(function(response) {
             console.log("CLASS POST SERVICE RESPONSE:  ", response.data);
