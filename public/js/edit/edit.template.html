@@ -1,1 +1,17 @@
-<h1>hello from edit</h1>
+<h1>Edit Post</h1>
+<form novalidate name="$ctrl.classifiedForm">
+  <label for="title">Title</label>
+    <input type="text" name="title" ng-model="$ctrl.classified.title"/>
+  <label for="description">description</label>
+    <input type="text" name="description" ng-model="$ctrl.classified.description"/>
+  <label for="price">Price</label>
+    <input type="text" name="price" ng-model="$ctrl.classified.price"/>
+  <label for="item_image">Image URL</label>
+    <input type="text" name="item_image" ng-model="$ctrl.classified.item_image" />
+  <div>
+    <button ng-click="$ctrl.patchClassified($ctrl.classified.title, $ctrl.classified.description, $ctrl.classified.price, $ctrl.classified.item_image)" class="btn btn-primary">Edit Classified</button>
+  </div>
+  <div>
+    <button class="btn btn-primary" ng-click="$ctrl.deleteClassified($ctrl.classified.id)">Delete Classified</button>
+  </div>
+</form>

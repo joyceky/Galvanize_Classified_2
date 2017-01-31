@@ -15,9 +15,13 @@
 
       .state({
         name: 'home',
-        // parent: 'app',
         url: '/',
         component: 'app'
+      })
+      .state({
+        name: 'edit',
+        url: '/edit/:id',
+        component: 'edit'
       });
   }
 

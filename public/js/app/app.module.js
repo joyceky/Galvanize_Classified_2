@@ -34,6 +34,13 @@ angular
             return response.data;
       });
     };
+    this.deleteClassifieds = function(id) {
+        return $http.delete('/classifieds/' + id)
+          .then(function(response) {
+            console.log("CLASS delete SERVICE RESPONSE:  ", response.data);
+            return response.data;
+      });
+    };
   }
 
 
