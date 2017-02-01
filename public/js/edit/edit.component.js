@@ -7,7 +7,8 @@ angular.module('app')
 // Create app component
   .component("edit", {
      controller: controller,
-      templateUrl: "js/edit/edit.template.html"
+      templateUrl: "js/edit/edit.template.html",
+      styleUrls: ["js/edit/edit.css"]
   });
 
   controller.$inject = ["$http", "$stateParams", "$state", "classifiedsService"];

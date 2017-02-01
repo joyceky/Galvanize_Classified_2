@@ -1,11 +1,12 @@
 <h1>All Classifieds</h1>
 
-<!-- SEARCH  -->
+<!-- SEARCH / SORT  -->
     <input type="search" ng-model="$ctrl.search" class="form-control input-sm search-form" placeholder="Search">
 
     <a ng-click="$ctrl.sortClassifieds('Price')">Sort by Price</a>
     <a ng-click="$ctrl.sortClassifieds('Date')">Sort by Date</a>
 
+<!-- REPEAT OVER AND DISPLAY EACH CLASSIFIED AD  -->
 <div ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sort | filter: $ctrl.search">
     <div>
         {{classified.title}}
@@ -18,6 +19,8 @@
     </div>
 </div>
 
+<!-- FORM TO POST A NEW CLASSIFIED AD  -->
+<h3>Add New Classified</h3>
 <form novalidate name="$ctrl.classifiedForm" ng-submit="$ctrl.addClassified($ctrl.classifiedData.title, $ctrl.classifiedData.description, $ctrl.classifiedData.price, $ctrl.classifiedData.item_image)">
     <label for="title">Title</label>
     <input type="text" name="title" ng-model="$ctrl.classifiedData.title"/>

@@ -6,7 +6,8 @@
         // Create app component
         .component("classifieds", {
             controller: controller,
-            templateUrl: "js/classifieds/classifieds.template.html"
+            templateUrl: "js/classifieds/classifieds.template.html",
+            styleUrls: ["js/classifieds/classifieds.css"]
         });
 
     controller.$inject = ["$http", "classifiedsService"];
@@ -14,6 +15,7 @@
 
     function controller($http, classifiedsService) {
         var vm = this;
+
         // Upon initialziation, do these things
         vm.$onInit = function() {
             vm.classifiedData = {};
@@ -55,7 +57,7 @@
                 }
             }
 
-            // Sort Posts Function
+            // Sort Classifieds Function
             function sortClassifieds(by) {
                 console.log('sort', by);
                 switch (by) {
